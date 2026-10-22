@@ -1,10 +1,21 @@
-CREATE TABLE teachers (
-    teacher_code SERIAL PRIMARY KEY, -- Если хотите, чтобы код генерировался сам. Если нет, замените на INTEGER.
-    f VARCHAR(50),
-    i VARCHAR(50),
-    o VARCHAR(50),
-    education INTEGER,
-    ex VARCHAR(50),                  -- ex — зарезервированное слово в некоторых СУБД, лучше назвать experience
-    department_nu INTEGER,
-    contact_phone VARCHAR(20)
+CREATE TABLE учителя (
+    код_преподавателя SERIAL PRIMARY KEY,
+    фамилия VARCHAR(50),
+    имя VARCHAR(50),
+    отчество VARCHAR(50),
+    образование INTEGER,
+    экс VARCHAR(50),
+    отдел_нур INTEGER,
+    контактный_телефон INTEGER
+);
+
+CREATE TABLE группа (
+    group_id SERIAL PRIMARY KEY,
+    максимальное_число INTEGER NOT NULL,
+    cod_F VARCHAR(100),
+    куратор INTEGER,
+    CONSTRAINT fk_куратор FOREIGN KEY (куратор) 
+        REFERENCES учителя (код_преподавателя) 
+        ON DELETE CASCADE 
+        ON UPDATE CASCADE
 );
