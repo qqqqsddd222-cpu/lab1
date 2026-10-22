@@ -11,7 +11,7 @@ CREATE TABLE teachers (
 
 CREATE TABLE "group" (
     group_id INTEGER PRIMARY KEY,
-    max_number INTEGER NOT NULL,
+	max_number INTEGER NOT NULL,
     cod_F VARCHAR(100),
     curator INTEGER,
     CONSTRAINT fk_curator FOREIGN KEY (curator) 
